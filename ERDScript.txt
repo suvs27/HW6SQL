@@ -1,0 +1,50 @@
+# HW6 Schema
+
+
+departments
+-
+dept_no PK varchar(30) 
+dept_name varchar(30)
+
+
+employees
+-
+emp_no PK int,
+birth_date date=
+first_name VARCHAR(30) 
+last_name VARCHAR(30) 
+gender VARCHAR(5)
+hire_date date 
+
+employees_departments
+-
+id SERIAL PK
+emp_no INTEGER FK >-< employees.emp_no
+dept_no VARCHAR(30) FK >-< departments.dept_no
+from_date date 
+to_date date
+
+department_managers
+-
+id SERIAL PK
+dept_no VARCHAR FK >-< departments.dept_no
+emp_no INTEGER FK -< employees.emp_no
+from_date date 
+to_date date 
+
+salaries
+-
+id SERIAL PK
+emp_no INTEGER FK >-< employees.emp_no
+salary INTEGER 
+from_date date 
+to_date date
+
+
+titles
+-
+id SERIAL PK
+emp_no INTEGER FK >-< employees.emp_no
+title VARCHAR(100)
+from_date date 
+to_date date 
